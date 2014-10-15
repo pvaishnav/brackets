@@ -125,7 +125,6 @@ define(function (require, exports, module) {
                 try {
                     result.resolve(tree.toCSS());
                 } catch (toCSSError) {
-                    console.error(toCSSError.filename + ":" + toCSSError.line + " " + toCSSError.message);
                     result.reject(toCSSError);
                 }
             }
@@ -219,6 +218,11 @@ define(function (require, exports, module) {
                 }
             })
             .fail(result.reject);
+        
+        // Summarize error info to console for easier debugging
+        result.fail(function (error) {
+            console.error("[Extension] Unable to load stylesheet " + path, error);
+        });
         
         return result.promise();
     }
