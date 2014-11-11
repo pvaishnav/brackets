@@ -92,7 +92,7 @@
 
     "svg": {
         "name": "SVG",
-        "mode": "xml",
+        "mode": "svg",
         "fileExtensions": ["svg"],
         "blockComment": ["<!--", "-->"]
     },
